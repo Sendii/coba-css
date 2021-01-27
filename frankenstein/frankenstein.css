@@ -1,0 +1,124 @@
+body{
+	background: #DDFFF7;		
+}
+.row{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 200px;
+}
+.head{
+	position: relative;
+	width: 220px;
+	height: 230px;
+	background: #96C691;
+	border-radius: 10px 10px 50% 50%;
+}
+.hair{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width: auto;
+	height: 50px;
+	background-color: #3B3F4B;
+}
+.out-hair{	
+	display: inline-block;	
+	border-top: 30px solid #3B3F4B;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+}
+.out-hair:nth-child(2){
+	margin-left: 6px;
+}
+.out-hair:nth-child(3){
+	margin-left: -4px;
+}
+.out-hair:nth-child(4){
+	margin-left: -4px;
+}
+.out-hair:nth-child(5){
+	border--radius: 10px/20px;
+	margin-left: -4px;
+}
+.stroke{
+	margin-top: -20px;
+	margin-left: 55%;
+	width: 95px;
+	height: 12px;
+	border-radius: 20px;
+	background: #3B3F4B;
+}
+.line-stroke{
+	margin-top: -8.5px;
+	display: inline-block;
+	width: 10px;
+	height: 30px;
+	background: #3B3F4B;
+	border-radius: 20px;
+}
+.line-stroke:nth-child(1){
+	margin-left: 20px;
+}
+.line-stroke:nth-child(2){
+	margin-left: 30px;
+}
+.face{
+	padding: 17px 0 0 33px;
+}
+.eye{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: #FFFFFF;
+	border-radius: 50%;
+	border: 4px solid #3B3F4B;
+}
+.eye:nth-child(1){
+	margin-left: 5px;
+}
+.eye:nth-child(2){
+	margin-left: 66px;
+}
+.mouth{
+	display: inline-block;
+	margin: 15px 0 0 33px;
+	width: 90px;
+	height: 20px;
+	border-radius: 20px;
+	background: #3B3F4B;
+}
+.iron{
+	margin-top: -50px;
+	width: 220px;
+	height: 12px;
+	border-radius: 20px;
+	background: #A2A5A4;
+}
+.bolt{
+	margin-top: -18px;
+	width: 10px;
+	height: 25px;
+	border-radius: 2px;
+	background: #BDBEBE;
+}
+.bolt-right{
+	margin-top: -25px;
+	margin-left: 210px;
+	width: 10px;
+	height: 25px;
+	border-radius: 2px;
+	background: #BDBEBE;
+}
+.font{
+	margin-left: 20px;
+	margin-top: 40px;
+	text-align: center;
+	padding-left: 250px;
+	padding-right: 250px;
+	font-family: 'Creepster', cursive;
+	font-size: 35px;
+}
