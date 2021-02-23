@@ -1,0 +1,39 @@
+body{
+	background-color: #C5DDB3;
+	font-family: 'Roboto';
+}
+.row{
+	/*background-color: #fafafa;*/
+	padding: 3% 40% 5% 40%;
+}
+.top{
+	border-radius: 5px 5px 0 0;
+	width: 200px;
+	height: 50px;
+	background-color: #CE5F5F;
+	box-shadow: 10px 10px 5px #888888;
+}
+.month{
+	padding: 2% 37%;
+	font-size: 35px;
+	color: #fff;
+}
+.bottom{
+	margin-top: -5px;
+	border-radius: 0 0 5px 5px;
+	width: 200px;
+	height: 150px;
+	background-color: #fff;
+	box-shadow: 10px 10px 5px #888888;
+}
+.date{
+	padding: 8% 23%;
+	font-size: 90px;
+	color: #000;
+}
+.year{
+	margin-top: -30px;
+	margin-left: 37%;
+	font-size: 25px;
+	font-weight: 600;
+}
