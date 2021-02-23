@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ini Dino</title>
+</head>
+<style>
+	body{
+		background-color: #5CDB94;
+	}
+	.row{
+		margin: 5% 10%;
+		background-color: #389583;
+		padding: 5px;
+		height: 200px;
+	}
+	.object{
+		border-radius: 15px;
+		margin: 0 0 0 10px;
+		position: absolute;
+		bottom: 21%;
+		width: 50px;
+		height: 50px;
+		background-color: red;
+	}
+</style>
+<body>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<div class="row">
+		<div class="object"></div>
+	</div>
+	<script>
+		let id = null
+		let elem = document.getElementsByClassName('object')[0];
+		let pos = 130;
+		let maxPos = 950;
+		function move(){
+			clearInterval(id)
+			id = setInterval(frame, 3)
+			function frame(){
+				if (pos == maxPos) {
+					clearInterval(id)
+					// gameOver()
+				}else{
+					pos++
+					elem.style.left = pos + 'px'
+				}
+			}
+		}
+
+		function gameOver(){
+			alert('whoops, kamu gagal')
+		}
+
+		function jump(ms=0){
+			elem.style.top = '150px'
+			setInterval(function(){
+				elem.style.top = null
+			},500)
+
+		}
+		document.body.onkeyup = function(e){
+			// ini keycode untuk space
+			if (e.keyCode == 32) {				
+				if (pos == maxPos) {
+					pos = 130
+					console.log('ea'+id)
+					move()
+					console.log('ea2'+id)
+				}else{
+					jump()
+				}
+			}
+		}
+		move()
+	</script>
+</body>
+</html>
