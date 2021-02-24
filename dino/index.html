@@ -22,6 +22,15 @@
 		height: 50px;
 		background-color: red;
 	}
+	.another-object{
+		border-radius: 15px;
+		margin: 0 0 0 290px;
+		position: absolute;
+		bottom: 39%;
+		width: 50px;
+		height: 50px;
+		background-color: white;
+	}
 </style>
 <body>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
@@ -32,40 +41,59 @@
 		let id = null
 		let elem = document.getElementsByClassName('object')[0];
 		let pos = 130;
+		let posA = 180;
 		let maxPos = 950;
 		function move(){
 			clearInterval(id)
 			id = setInterval(frame, 3)
 			function frame(){
 				if (pos == maxPos) {
-					clearInterval(id)
-					// gameOver()
-				}else{
+					clearInterval(id)					
+				}else if( checkCollision(document.getElementsByClassName('object')[0], document.getElementsByClassName('another-object')[0]) ){
+					gameOver()
+				}
+				else{
 					pos++
 					elem.style.left = pos + 'px'
 				}
 			}
 		}
 
+		function checkCollision(elm1, elm2){
+			let elm1Rect = elm1.getBoundingClientRect()
+			let elm2Rect = elm2.getBoundingClientRect()
+
+			return (elm1Rect.right >= elm2Rect.left &&
+				elm1Rect.left <= elm2Rect.right) &&
+			(elm1Rect.bottom >= elm2Rect.top &&
+				elm1Rect.top <= elm2Rect.bottom);
+		}
+
+		function anotherObject(){
+			let a = document.createElement('div')
+			a.classList.add('another-object')
+			document.getElementsByClassName('row')[0].appendChild(a)
+		}
+		anotherObject()
+
 		function gameOver(){
 			alert('whoops, kamu gagal')
+			pos = 130
+			move()
 		}
 
 		function jump(ms=0){
 			elem.style.top = '150px'
-			setInterval(function(){
+			setTimeout(function(){
 				elem.style.top = null
-			},500)
-
+			},1000)
 		}
 		document.body.onkeyup = function(e){
 			// ini keycode untuk space
 			if (e.keyCode == 32) {				
 				if (pos == maxPos) {
 					pos = 130
-					console.log('ea'+id)
 					move()
-					console.log('ea2'+id)
 				}else{
 					jump()
 				}
