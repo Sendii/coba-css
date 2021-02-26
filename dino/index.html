@@ -10,8 +10,14 @@
 	.row{
 		margin: 5% 10%;
 		background-color: #389583;
-		padding: 5px;
+		padding: 5px 0;
 		height: 200px;
+		overflow-x: scroll;
+	}
+	.background{
+		/*width: 100%;*/
+		height: 100%;
+		background-color: #fafa;
 	}
 	.object{
 		border-radius: 15px;
@@ -23,41 +29,61 @@
 		background-color: red;
 	}
 	.another-object{
+		top: 50px;
 		border-radius: 15px;
 		margin: 0 0 0 290px;
-		position: absolute;
-		bottom: 39%;
+		position: relative;
 		width: 50px;
 		height: 50px;
 		background-color: white;
+		position: relative;
 	}
 </style>
 <body>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	<div class="row">
+		<div class="background"></div>
 		<div class="object"></div>
 	</div>
 	<script>
-		let id = null
-		let elem = document.getElementsByClassName('object')[0];
-		let pos = 130;
-		let posA = 180;
-		let maxPos = 950;
+		let id_obj, id_background = null
+		let elem_obj = document.getElementsByClassName('object')[0];
+		let elem_background = document.getElementsByClassName('background')[0];
+		let pos_obj = 130;
+		let pos_background = 0;
+		let max_pos_obj = 950;
+		let max_pos_background = -1800
 		function move(){
-			clearInterval(id)
-			id = setInterval(frame, 3)
+			moveBackground()
+			clearInterval(id_obj)
+			id_obj = setInterval(frame, 3)
 			function frame(){
-				if (pos == maxPos) {
-					clearInterval(id)					
+				if (pos_obj == max_pos_obj) {
+					clearInterval(id_obj)					
 				}else if( checkCollision(document.getElementsByClassName('object')[0], document.getElementsByClassName('another-object')[0]) ){
 					gameOver()
 				}
-				else{
-					pos++
-					elem.style.left = pos + 'px'
-				}
+				// else{
+					// pos_obj++
+					// console.log(pos_obj)
+					// elem_obj.style.marginLeft = pos_obj + 'px'
+				// }
 			}
 		}
+
+		function moveBackground(){
+			clearInterval(id_background)
+			id_background = setInterval(frameBackground, 3)
+			function frameBackground(){
+				if (pos_background == max_pos_background) {
+					clearInterval(id_background)
+				}else{
+					pos_background--
+					// elem_background.style.width += 1
+					elem_background.style.marginLeft = pos_background + 'px'
+				}				
+			}
+		}		
 
 		function checkCollision(elm1, elm2){
 			let elm1Rect = elm1.getBoundingClientRect()
@@ -72,37 +98,37 @@
 		function anotherObject(){
 			let a = document.createElement('div')
 			a.classList.add('another-object')
-			document.getElementsByClassName('row')[0].appendChild(a)
+			document.getElementsByClassName('background')[0].appendChild(a)
 		}
 		anotherObject()
 
 		function gameOver(){
 			alert('whoops, kamu gagal')
-			pos = 130
+			pos_obj = 130
 			move()
 		}
 
 		function jump(ms=0){
-			elem.style.top = '150px'
+			elem_obj.style.top = '150px'
 			setTimeout(function(){
-				elem.style.top = null
+				elem_obj.style.top = null
 			},1000)
 		}
 		document.body.onkeyup = function(e){
 			// ini keycode untuk space atau arrow up
 			if (e.keyCode == 32 || e.keyCode == 38) {				
-				if (pos == maxPos) {
-					pos = 130
+				if (pos_obj == max_pos_obj) {
+					pos_obj = 130
+					pos_background = 130;
 					move()
 				}else{
 					jump()
 				}
 			}else if(e.keyCode == 40){
-				elem.style.top = null
+				elem_obj.style.top = null
 			}
-		}
-		
-		move()
+		}	
+		move()		
 	</script>
 </body>
 </html>
