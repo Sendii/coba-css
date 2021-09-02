@@ -58,16 +58,17 @@
 			clearInterval(id_obj)
 			id_obj = setInterval(frame, 3)
 			function frame(){
+				// console.log(pos_obj)
 				if (pos_obj == max_pos_obj) {
 					clearInterval(id_obj)					
 				}else if( checkCollision(document.getElementsByClassName('object')[0], document.getElementsByClassName('another-object')[0]) ){
 					gameOver()
 				}
-				// else{
-					// pos_obj++
-					// console.log(pos_obj)
+				else{
+					pos_obj++
+					console.log(pos_obj)
 					// elem_obj.style.marginLeft = pos_obj + 'px'
-				// }
+				}
 			}
 		}
 
@@ -128,7 +129,21 @@
 				elem_obj.style.top = null
 			}
 		}	
+
+		function getScore(pos_obj=0){
+			let i = 0;
+			console.log('pos_obj : ', pos_obj)
+			if (pos_obj != max_pos_obj) {
+				setInterval(() => {
+					i++
+					console.log('ini', i)
+				}, 1000)
+			}else{
+				i = 0
+			}
+		}		
 		move()		
+		getScore(pos_obj)
 	</script>
 </body>
 </html>
