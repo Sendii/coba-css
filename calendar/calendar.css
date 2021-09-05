@@ -1,5 +1,5 @@
 body{
-	background-color: #C5DDB3;
+	background-color: #75E1D9;
 	font-family: 'Roboto';
 }
 .row{
@@ -14,7 +14,7 @@ body{
 	box-shadow: 10px 10px 5px #888888;
 }
 .month{
-	padding: 2% 37%;
+	padding: 2% 29%;
 	font-size: 35px;
 	color: #fff;
 }
@@ -27,12 +27,12 @@ body{
 	box-shadow: 10px 10px 5px #888888;
 }
 .date{
-	padding: 8% 23%;
+	padding: 5% 23%;
 	font-size: 90px;
 	color: #000;
 }
 .year{
-	margin-top: -30px;
+	margin-top: -25px;
 	margin-left: 37%;
 	font-size: 25px;
 	font-weight: 600;
